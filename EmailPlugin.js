@@ -7,6 +7,8 @@ async function EmailPlugin() {
         //must set sender email support@outfinitygift.com in env, for testing
         process.env.SENDGRID_API_KEY = "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";
     }
+    console.log("---------------------------------------------------")
+    console.log(process.env.SENDGRID_API_KEY);
     sgMail.setApiKey(process.env.SENDGRID_API_KEY);
     self.sendEmail = async function (to, from, subject, text, html) {
         const msg = {
@@ -16,6 +18,8 @@ async function EmailPlugin() {
             text: text,
             html: html
         };
+        console.log(JSON.stringify(msg));
+        console.log("---------------------------------------------------")
         try {
             await sgMail.send(msg);
         } catch (e) {

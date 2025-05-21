@@ -54,7 +54,7 @@ module.exports = {
     },
     getAllow: function () {
         return async function (globalUserId, email, command, ...args) {
-            return true;
+            return false;
         }
     }
 }

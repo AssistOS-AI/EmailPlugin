@@ -54,6 +54,9 @@ module.exports = {
     },
     getAllow: function () {
         return async function (globalUserId, email, command, ...args) {
+            if(globalUserId === "*"){
+                return true;
+            }
             return false;
         }
     }

@@ -10,7 +10,7 @@ async function EmailPlugin() {
     console.log("---------------------------------------------------")
     console.log(process.env.SENDGRID_API_KEY);
     sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-    self.sendEmail = async function (to, from, subject, text, html) {
+    self.sendEmail = async function (userId, to, from, subject, text, html) {
         const msg = {
             to: to,
             from: from,
@@ -27,7 +27,7 @@ async function EmailPlugin() {
         }
 
     }
-    self.sendFromTemplate = async function (to, from, templateId, dynamicTemplateData) {
+    self.sendFromTemplate = async function (userId, to, from, templateId, dynamicTemplateData) {
         const msg = {
             to: to,
             from: from,
@@ -57,7 +57,8 @@ module.exports = {
             switch (command) {
                 case "sendFromTemplate":
                 case "sendEmail":
-                    if(globalUserId === args[1] || globalUserId === "*") {
+                    let user = await $$.loadPlugin("StandardPersistence").getUser(globalUserId);
+                    if (globalUserId === args[0] || globalUserId === "*") {
                         return true;
                     }
                     return false;

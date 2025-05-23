@@ -54,10 +54,16 @@ module.exports = {
     },
     getAllow: function () {
         return async function (globalUserId, email, command, ...args) {
-            if(globalUserId === "*"){
-                return true;
+            switch (command) {
+                case "sendFromTemplate":
+                case "sendEmail":
+                    if(globalUserId === args[0] || globalUserId === "*") {
+                        return true;
+                    }
+                    return false;
+                default:
+                    return false;
             }
-            return false;
         }
     }
 }

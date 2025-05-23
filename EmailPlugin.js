@@ -57,7 +57,6 @@ module.exports = {
             switch (command) {
                 case "sendFromTemplate":
                 case "sendEmail":
-                    let user = await $$.loadPlugin("StandardPersistence").getUser(globalUserId);
                     if (globalUserId === args[0] || globalUserId === "*") {
                         return true;
                     }

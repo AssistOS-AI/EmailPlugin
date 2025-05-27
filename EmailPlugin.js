@@ -3,12 +3,10 @@ const sgMail = require('@sendgrid/mail');
 async function EmailPlugin() {
     let self = {};
     if (!process.env.SENDGRID_API_KEY) {
-        console.debug("SentGRID API key missing. using default key");
-        //must set sender email support@outfinitygift.com in env, for testing
-        process.env.SENDGRID_API_KEY = "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";
+        console.error("SENDGRID_API_KEY is not set");
     }
     console.log("---------------------------------------------------")
-    console.log(process.env.SENDGRID_API_KEY);
+    console.log("DEBUG----------: SENDGRID_API_KEY", process.env.SENDGRID_API_KEY);
     sgMail.setApiKey(process.env.SENDGRID_API_KEY);
     self.sendEmail = async function (userId, to, from, subject, text, html) {
         const msg = {

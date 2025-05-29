@@ -55,10 +55,7 @@ module.exports = {
             switch (command) {
                 case "sendFromTemplate":
                 case "sendEmail":
-                    if (globalUserId === args[0]) {
-                        return true;
-                    }
-                    return false;
+                    return true;
                 default:
                     return false;
             }

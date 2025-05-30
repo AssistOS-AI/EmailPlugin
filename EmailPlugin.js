@@ -55,7 +55,7 @@ module.exports = {
             switch (command) {
                 case "sendFromTemplate":
                 case "sendEmail":
-                    return true;
+                    return false;
                 default:
                     return false;
             }

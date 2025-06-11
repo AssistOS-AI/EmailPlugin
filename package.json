@@ -1,0 +1,20 @@
+{
+  "name": "EmailPlugin",
+  "main": "EmailPlugin.js",
+  "version": "v1.0.0",
+  "scripts": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AssistOS-AI/EmailPlugin.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AssistOS-AI/EmailPlugin.git/issues"
+  },
+  "homepage": "https://github.com/AssistOS-AI/EmailPlugin.git#readme",
+  "dependencies": {
+    "@sendgrid/mail": "8.1.3"
+  }
+}

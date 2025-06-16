@@ -5,7 +5,6 @@ async function EmailPlugin() {
     if (!process.env.SENDGRID_API_KEY) {
         console.error("SENDGRID_API_KEY is not set");
     }
-    console.log("---------------------------------------------------")
     console.log("DEBUG----------: SENDGRID_API_KEY", process.env.SENDGRID_API_KEY);
     sgMail.setApiKey(process.env.SENDGRID_API_KEY);
     self.sendEmail = async function (userId, to, from, subject, text, html) {
